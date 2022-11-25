@@ -1,0 +1,235 @@
+Not all options have been mentioned. Only the queations and their answers. 
+--------------------------------------
+
+                                        QUIZ
+                                        ****
+                                      
+Question 1
+Filtering data is used to do which of the following? (select all that apply)
+
+
+Removes unwanted data in a calculation
+
+Reduce the time it takes to run the query
+
+Narrows down the results of the data. 
+
+Helps you understand the contents of your data
+
+Reduces the strain on the client application
+
+--------------------------------------
+
+Question 2
+You are doing an analysis on musicians that start with the letter “K”. 
+Select the correct query that would retrieve only the artists whose name starts with this letter. 
+
+
+SELECT name
+FROM Artists
+WHERE name LIKE ‘K%’;
+
+--------------------------------------
+
+Question 3
+A null and a zero value effectively mean the same thing. True or false?
+
+
+False 
+
+--------------------------------------
+
+Question 4
+Select all that are true regarding wildcards (Select all that apply.)
+
+
+Wildcards take longer to run compared to a logical operator
+
+Wildcards at the end of search patterns take longer to run
+
+--------------------------------------
+
+Question 5
+Select the statements below that ARE NOT true of the ORDER BY clause (select all that apply).
+
+
+Cannot sort by a column not retrieved
+
+Can be anywhere in the select statement
+
+--------------------------------------
+
+Question 6
+Select all of the valid math operators in SQL (select all that apply).
+
+
++ (addition)
+
+/ (division)
+
+- (subtraction)
+
+* (multiplication)
+
+--------------------------------------
+
+Question 7
+Which of the following is an aggregate function? (select all that apply)
+
+
+COUNT()
+
+MAX()
+
+MIN()
+
+--------------------------------------
+
+Question 8
+Which of the following is true of GROUP BY clauses? (Select all that apply.)
+
+
+GROUP BY clauses can contain multiple columns
+
+NULLs will be grouped together if your Group By column contains NULLs
+
+Every column in your select statement may/can be present in a group by clause, 
+except for aggregated calculations.
+
+--------------------------------------
+
+Question 9
+Select the true statement below.
+
+
+HAVING filters after the data is grouped. 
+
+--------------------------------------
+
+Question 10
+Which is the correct order of occurrence in a SQL statement?
+
+
+select, from, where, group by, having
+
+----------End of Quiz Section----------
+
+                                        CODING
+                                        ******
+                                        
+Question 1                                        
+Find all the tracks that have a length of 5,000,000 milliseconds or more.
+
+
+SELECT COUNT(TrackId)
+FROM TRACKS
+WHERE Milliseconds >= 5000000
+
+Tracks Returned: 10 
+
+--------------------------------------
+
+Question 2
+Find all the invoices whose total is between $5 and $15 dollars.
+
+
+SELECT InvoiceID,Total
+FROM Invoices
+WHERE Total > 5 AND Total < 15
+
+Total Records: 168
+
+--------------------------------------
+
+Question 3
+Find all the customers from the following States: RJ, DF, AB, BC, CA, WA, NY.
+
+
+SELECT FirstName, LastName, Company, State
+FROM Customers
+WHERE State IN ('RJ','DF','AB','BC','CA','WA','NY')
+
+Jack Smith works for: Microsoft Corp
+
+--------------------------------------
+
+Question 4
+Find all the invoices for customer 56 and 58 where the total was between 
+ $1.00 and $5.00.
+ 
+
+SELECT CustomerId, InvoiceId, Total, InvoiceDate
+FROM Invoices
+WHERE CustomerID IN (56,58) AND 
+Total BETWEEN 1 AND 5
+
+Date for Invoice ID 315: 10-27-2012
+
+--------------------------------------
+
+Question 5
+Find all the tracks whose name starts with 'All'.
+
+
+SELECT TrackId, Name
+FROM Tracks
+WHERE Name LIKE 'All%'
+
+Total records: 15
+
+--------------------------------------
+
+Question 6
+Find all the customer emails that start with "J" and are from gmail.com.
+
+
+SELECT CustomerId, Email
+FROM Customers
+WHERE Email LIKE "J%@gmail.com"
+
+Email Address Returned: junarnett@gmail.com
+
+--------------------------------------
+
+Question 7
+Find all the invoices from Brasilia, Edmonton, and Vancouver and sort in 
+ descending order by invoice ID.
+
+
+SELECT InvoiceId, BillingCity, Total
+FROM Invoices
+WHERE BillingCity IN ('Brasilia','Edmonton','Vancouver')
+ORDER BY InvoiceId DESC
+
+Invoice amount of first record returned: 13.86 
+
+--------------------------------------
+
+Question 8
+Show the number of orders placed by each customer and sort the result by
+ the number of orders in descending order.
+
+
+SELECT CustomerId, COUNT(*) AS Orders
+FROM Invoices
+GROUP BY CustomerId
+ORDER BY Orders DESC
+
+Items placed for 8th person: 7
+
+--------------------------------------
+
+Question 9
+Find the albums with 12 or more tracks.
+
+SELECT AlbumId, Count(*) AS Ntracks
+FROM Tracks
+GROUP BY AlbumId
+HAVING COUNT (*) >= 12
+
+Total records: 158 
+
+
+-------End of Coding Section---------
+                                        
+                                        
